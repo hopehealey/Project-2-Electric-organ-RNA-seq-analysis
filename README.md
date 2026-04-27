@@ -25,6 +25,8 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 
 ## Part 1 – Read quality score distributions, DUE 8/30
 
+Create a folder called Project2_Part1 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part1_answers.txt (located in Project2_Part1). Upload any plots created in this section to Project2_Part1 and give them detailed names.**
+
 1. Create a new environment with your package manager called `QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
    - `fastqc --version` (should be X.XX.X)  
 
@@ -34,12 +36,13 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 
 4. Comment on the overall data quality of your two libraries. Go beyond per-base qscore distributions. Examine the `FastQC` [documentation](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) for guidance on interpreting results and planning next steps. Make and justify a recommendation on whether these data are of high enough quality to use for further analysis. 
 
+## Part 2 Adaptor trimming comparison, DUE 8/31
 
-## Part 2 – Adaptor trimming comparison
+Create a folder called Project2_Part2 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part2/Project2_Part2_answers.txt. Upload any R code to Project2_Part2/Project2_Part2_answers.R. Upload any plots created in this section to Project2_Part2 and give them detailed names.**
 
-5.  If you haven't already in your QAA environment, install `Cutadapt` and `Trimmomatic`. Check your installations with:
-    - `cutadapt --version` (should be 5.0)
-    - `trimmomatic -version` (should be 0.39)
+5.  If you haven't already in your QAA environment, install `Cutadapt` and `Trimmomatic` using your package manager. Check your installations with:
+    - `cutadapt --version` (should be X.X)
+    - `trimmomatic -version` (should be X.XX)
 
 6. Using `Cutadapt`, properly trim adapter sequences from your assigned files. Be sure to read how to use `Cutadapt`. Use default settings. What proportion of reads (both R1 and R2) were trimmed?
 
@@ -54,7 +57,6 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
     - *Sanity check*: Use your Unix skills to search for the adapter sequences in your datasets and confirm the expected sequence orientations. Report the commands you used, the reasoning behind them, and how you confirmed the adapter sequences.
     
 7. Use `Trimmomatic` to quality trim your reads. Specify the following, **in this order**:
-    - HEADCROP: 8 bases 
     - LEADING: quality of 3
     - TRAILING: quality of 3
     - SLIDING WINDOW: window size of 5 and required quality of 15
@@ -67,9 +69,12 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 9. Bonus - Run `FastQC` on your trimmed data. Comment on differences you observe between the trimmed and untrimmed data. Include any figures needed to support your conclusions.
 
 ## Part 3 – Alignment and strand-specificity
+10. ## Part 3 Alignment and strand-specificity, DUE 9/3
+
+Create a folder called Project2_Part3 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part3/Project2_Part3_answers.txt.**
+
 10. Install additional software for alignment and counting of RNA-seq reads. In your QAA environment, use conda to install:
     - Star
-    - Picard
     - Samtools
     - NumPy
     - Matplotlib
@@ -79,11 +84,8 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 
   > [!IMPORTANT]
   > You will need to use gene models to perform splice-aware alignment, see PS8 from Bi621. You may need to convert the gff file into a gtf file for this to work successfully.
-    
-12. Remove PCR duplicates using [Picard MarkDuplicates](https://broadinstitute.github.io/picard/command-line-overview.html#MarkDuplicates). You may need to sort your reads with `samtools` before running Picard.
-- Use the following for running picard: picard MarkDuplicates INPUT=[FILE] OUTPUT=[FILE] METRICS_FILE=[FILENAME].metrics REMOVE_DUPLICATES=TRUE VALIDATION_STRINGENCY=LENIENT
-  
-13. Using your script from PS8 in Bi621, report the number of mapped and unmapped reads from each of your 2 sam files post deduplication with picard. Make sure that your script is looking at the bitwise flag to determine if reads are primary or secondary mapping (update/fix your script if necessary).
+
+13. Using your script from PS8 in Bi621, report the number of mapped and unmapped reads from each of your 2 SAM files post deduplication with picard. Make sure that your script is looking at the bitwise flag to determine if reads are primary or secondary mapping (update/fix your script if necessary).
 
 14. Count deduplicated reads that map to features using `htseq-count`. You should run htseq-count twice: once with `--stranded=yes` and again with `--stranded=reverse`. Use default parameters otherwise. You may need to use the `-i` parameter for this run.
 
@@ -92,11 +94,7 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
   > [!TIP]
   > Recall ICA4 from Bi621.
 
-16. BONUS - Turn your commands from part 1 and 2 into a script with a loop going through your two SRA files
-
-## Bonus (optional!)
-
-Review the [publication](https://doi.org/10.1093/molbev/msae021) from PRJNA1005244 or the third chapter of the [thesis](https://canvas.uoregon.edu/courses/266187/files/22059308?module_item_id=5380118) for the PRJNA1005245 dataset. See if this information leads to any additional insight of your analysis.
+16. BONUS - Turn your commands from this assignment into a script with a loop going through your two SRA files
 
 ## Upload your:
 - [ ] lab notebook
