@@ -95,32 +95,3 @@ Create a folder called Project2_Part3 on your git repo. **Upload all of your ans
   > Recall ICA4 from Bi621.
 
 16. BONUS - Turn your commands from this assignment into a script with a loop going through your two SRA files
-
-## Upload your:
-- [ ] lab notebook
-- [ ] Talapas batch script/code
-- [ ] FastQC plots
-- [ ] counts files generated from htseq-count (in a folder would be nice; **only include the counts files that would be used in a future differential RNA-seq analysis and follow the naming conventions from the RNAseq meta data file: YourSubmittedHTSeqCountsFileName column**)
-- [ ] pdf report (see below; turn into both Github AND Canvas)
-- [ ] and any additional plots, code, or code output
-
-to GitHub.
-    
-### Pdf report details
-You should create a pdf file (using Rmarkdown) with a high-level report including:
-
-- [ ] all requested plots
-- [ ] answers to questions
-- [ ] mapped/unmapped read counts from PS8 script (in a nicely formatted table)
-- [ ] It should be named `QAA_report.pdf`
-- [ ] Include at the top level of your repo
-- [ ] ALSO, submit it to Canvas.
-
-> [!TIP]
-> You may need to install LaTeX to knit your rmarkdown into a pdf file. Run `tinytex::install_tinytex()` to install it on R.
-   
-The three parts of the assignment should be clearly labeled. Be sure to title and write a descriptive figure caption for each image/graph/table you present. 
-
-> [!TIP]
-> Think about figure captions you've read and discussed in Journal Club. Find some good examples to model your captions on.
-
