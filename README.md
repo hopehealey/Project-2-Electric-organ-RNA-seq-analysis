@@ -1,30 +1,39 @@
-# RNA-seq Quality Assessment Assignment - Bi 623 (Summer 2025 Assignment/PS 2)
+# Bi623 Project 2: Electric organ RNA-seq analysis
 
-## Overall assignment:
+## Overall project:
 
-In this assignment, you will process electric organ and/or skeletal muscle RNA-seq reads for a future differential gene expression analysis. We will be completing the differential gene expression analysis in our last bioinformatics assignment of this class. You will learn how to use existing tools for quality assessment and read trimming, compare quality assessments to those created by your own software, and how to align and count reads. Additionally, you will learn how to summarize important information in a high-level report. You should create a cohesive, [well written](https://drive.google.com/drive/u/0/folders/1GorpwubavrvhUtK18PZ7LURXcz0hf0bK) report for your "PI" about what you've learned about/from your data.
+In this project, you will process electric organ and/or skeletal muscle RNA-seq reads and then complete a differential expression analysis to address a biological question. You will learn how to use existing tools for quality assessment and read trimming, compare quality assessments to those created by your own software, how to align and count reads, and how to complete a differential expression analysis. At the end of project 2, you will summarize important information in a high-level report. You will create a cohesive, well written report for your "PI" about what you've learned from processing data to analysis.
 
-Be sure to upload all relevant materials by the deadline and **double check** to be sure that your offline repository is up-to-date with your online repository. Answers to questions should be included in your final, high-level, report as a `pdf`. This pdf should be generated using Rmarkdown and submitted to Canvas as well as GitHub. Be sure to keep a well-organized, detailed lab notebook!
-
+**This template is provided as reference for instructions. Files with specific naming conventions are requested to be turned in at the end of this project. You can use this template to gather notes while completing this project**. Be sure to upload all relevant materials by the deadlines and **double check** to be sure that your offline repository is up-to-date with your online repository. Answers to questions should be included in output files. Be sure to keep a well-organized, detailed lab notebook!
 
 ### Dataset:
 
-Each of you will be working with 2 RNA-seq files from two different electric fish studies (PRJNA1005245 and PRJNA1005244). The methods for the PRJNA1005244 dataset are [published](https://doi.org/10.1093/molbev/msae021) and the methods for the PRJNA1005245 dataset are written in the third chapter of a [thesis](https://canvas.uoregon.edu/courses/266187/files/22059308?module_item_id=5380118). For all steps below, process the two libraries separately. SRR assignments are here: ```/projects/bgmp/shared/Bi623/PS2/QAA_data_Assignments.txt```. If you have time, consider claiming and processing additional RNA-seq raw sequencing files via this [google doc](https://docs.google.com/document/d/1vEmVEzUaTjbDF4JyNsWH-wFpi8dm4wkcvWgSoYZzoCY/edit?usp=sharing). Although this is not extra credit, it will make our downstream RNA-seq analysis more interesting and your classmates will appreciate your efforts.
+We will be working with RNA-seq reads from Camplylomormyrus fishes, originating from 2 projects (found on NCBI: PRJNA1005244 and PRJNA1005245). The methods for the PRJNA1005244 dataset are [published](https://doi.org/10.1093/molbev/msae021) and the methods for the PRJNA1005245 dataset are written in the third chapter of a [thesis](https://canvas.uoregon.edu/courses/266187/files/22059308?module_item_id=5380118).
 
-You are responsible for downloading this data from NCBI SRA, dumping into FASTQ files, and zipping those files. We are processing this data for use in a future assignment, so please keep your files well organized. Finally, rename the files to reflect Species_sample_tissue_age/size_sample#_readnumber.fastq.gz.
+For steps 1-3 of project 2, each of you will be working with 2 RNA-seq files. For all steps below, process the two libraries separately. SRR assignments are here: ```/projects/bgmp/shared/Bi623/PS2/QAA_data_Assignments.txt```. You are responsible for downloading this data from NCBI SRA, dumping into FASTQ files, and zipping those files (check ICA1 for a refresher). Rename the files to the convention Species_sample_tissue_age/size_sample#_readnumber.fastq.gz (follow the csv from the repository).
+
+For steps 4-5 of project 2, people will have access to all of the counts files from these fishes. You are expected to identify a scientifically relevant hypothesis, and test it using these counts. 
 
 **Reminder: This template file IS not your final product; however, it gives you a space to record all of the necessary information for your final report.**
 
-## Part 1 – Read quality score distributions
+## For this project, your git repo should:
+- [ ] Be properly organized (1 folder per part of the project)
+- [ ] Contain your lab notebook
+- [ ] Include all Talapas batch script/code
+- [ ] Have all plots with detailed file names
+- [ ] Only possess counts files generated from htseq-count that would be used in future differential RNA-seq analysis (**In their own folder; with the naming convention Species_sample_tissue_age/size_sample#_readnumber_htseqcounts_[revORyes]stranded.txt**)
 
-1. Create a new conda environment called `QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create conda environments. Recommend doing this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
-   - `fastqc --version` (should be 0.12.1)  
+## Part 1 – Read quality score distributions, DUE 8/30
+
+1. Create a new environment with your package manager called `QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
+   - `fastqc --version` (should be X.XX.X)  
 
 2. Using `FastQC` via the command line on Talapas, produce plots of the per-base quality score distributions for R1 and R2 reads. Also, produce plots of the per-base N content, and comment on whether or not they are consistent with the quality score plots.
 
-3. Run your quality score plotting script from your Demultiplexing assignment in Bi622. (Make sure you're using the "running sum" strategy!!) Describe how the `FastQC` quality score distribution plots compare to your own. If different, propose an explanation. Also, does the runtime differ? Mem/CPU usage? If so, why?
+3. Run your quality score plotting script from your Demultiplexing assignment in Bi622. (Make sure you're using the "running sum" strategy!!) Describe how the `FastQC` quality score distribution plots compare to your own. If different, propose an explanation. Also, does the run time differ? Mem/CPU usage? If so, why?
 
 4. Comment on the overall data quality of your two libraries. Go beyond per-base qscore distributions. Examine the `FastQC` [documentation](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) for guidance on interpreting results and planning next steps. Make and justify a recommendation on whether these data are of high enough quality to use for further analysis. 
+
 
 ## Part 2 – Adaptor trimming comparison
 
