@@ -46,6 +46,7 @@ You are expected to use DESeq2 for this assignment. If you decide to use an addi
 2. Filter the dataset to remove genes that are lowly expressed
 
 - There are multiple ways to filter RNA-Seq datasets. You can either use cpm as a filter as we did in the Bear_analysis or use raw counts completed in the DESeq2 vignette from the above resources. 
+- Describe why you used your filtering strategy
 
 
 ```{r}
@@ -74,7 +75,7 @@ You are expected to use DESeq2 for this assignment. If you decide to use an addi
 [Write a description on the rlog transformation]
 
 
-5. Identify distances between samples using sample distance heatmaps: 5 points (2 points for code, 3 points for description)
+5. Identify distances between samples using sample distance heatmaps
 
 - Generate a Euclidean distance heatmap and dendrogram using your rlog transformed data (follow workflow section 4.3)
 - Create a Poisson distance heatmap with dendrogram using DESeq data (follow workflow section 4.3)
