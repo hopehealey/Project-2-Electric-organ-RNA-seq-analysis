@@ -27,8 +27,8 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 
 Create a folder called Project2_Part1 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part1_answers.txt (located in Project2_Part1). Upload any plots created in this section to Project2_Part1 and give them detailed names.**
 
-1. Create a new environment with your package manager called `QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
-   - `fastqc --version` (should be X.XX.X)  
+1. Create a new environment with PIXI called `Project2_QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
+   - `fastqc --version` (should be v0.12.1)  
 
 2. Using `FastQC` via the command line on Talapas, produce plots of the per-base quality score distributions for R1 and R2 reads. Also, produce plots of the per-base N content, and comment on whether or not they are consistent with the quality score plots.
 
@@ -41,8 +41,8 @@ Create a folder called Project2_Part1 on your git repo. **Upload all of your ans
 Create a folder called Project2_Part2 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part2/Project2_Part2_answers.txt. Upload any R code to Project2_Part2/Project2_Part2_answers.R. Upload any plots created in this section to Project2_Part2 and give them detailed names.**
 
 5.  If you haven't already in your QAA environment, install `Cutadapt` and `Trimmomatic` using your package manager. Check your installations with:
-    - `cutadapt --version` (should be X.X)
-    - `trimmomatic -version` (should be X.XX)
+    - `cutadapt --version` (should be 5.2)
+    - `trimmomatic -version` (should be 0.40)
 
 6. Using `Cutadapt`, properly trim adapter sequences from your assigned files. Be sure to read how to use `Cutadapt`. Use default settings. What proportion of reads (both R1 and R2) were trimmed?
 
