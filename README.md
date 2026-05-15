@@ -10,7 +10,7 @@ In this project, you will process electric organ and/or skeletal muscle RNA-seq 
 
 We will be working with RNA-seq reads from Camplylomormyrus fishes, originating from 2 projects (found on NCBI: PRJNA1005244 and PRJNA1005245). The methods for the PRJNA1005244 dataset are [published](https://doi.org/10.1093/molbev/msae021) and the methods for the PRJNA1005245 dataset are written in the third chapter of a [thesis](https://canvas.uoregon.edu/courses/266187/files/22059308?module_item_id=5380118).
 
-For steps 1-3 of project 2, each of you will be working with 2 RNA-seq files. For all steps below, process the two libraries separately. SRR assignments are here: ```/projects/bgmp/shared/Bi623/PS2/QAA_data_Assignments.txt```. You are responsible for downloading this data from NCBI SRA, dumping into FASTQ files, and zipping those files (check ICA1 for a refresher). Rename the files to the convention Species_sample_tissue_age/size_sample#_readnumber.fastq.gz (follow the csv from the repository).
+For steps 1-3 of project 2, each of you will be working with 2 RNA-seq files. For all steps below, process the two libraries separately. SRR assignments are here: ```/projects/bgmp/shared/Bi623/Project2/Project2_part1_3_data_assignments.txt```. You are responsible for downloading this data from NCBI SRA, dumping into FASTQ files, and zipping those files (check ICA1 for a refresher). Rename the files to the convention Species_sample_tissue_age/size_sample#_readnumber.fastq.gz (follow the csv from the repository).
 
 For steps 4-5 of project 2, people will have access to all of the counts files from these fishes. You are expected to identify a scientifically relevant hypothesis, and test it using these counts. 
 
@@ -80,7 +80,7 @@ Create a folder called Project2_Part3 on your git repo. **Upload all of your ans
     - Matplotlib
     - HTSeq
 
-11. Download the publicly available *Campylomormyrus compressirostris* genome fasta and gff file from [Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.c59zw3rcj) and generate an alignment database from it. If the download fails, the files are available `/projects/bgmp/shared/Bi623/PS2/campylomormyrus.fasta`, `/projects/bgmp/shared/Bi623/PS2/campylomormyrus.gff`. Align the reads to your *C. compressirostris* database using a splice-aware aligner. Use the settings specified in PS8 from Bi621. 
+11. Download the publicly available *Campylomormyrus compressirostris* genome fasta and gff file from [Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.c59zw3rcj) and generate an alignment database from it. If the download fails, the files are available `/projects/bgmp/shared/Bi623/Project2/campylomormyrus.fasta`, `/projects/bgmp/shared/Bi623/Project2/campylomormyrus.gff`. Align the reads to your *C. compressirostris* database using a splice-aware aligner. Use the settings specified in PS8 from Bi621. 
 
   > [!IMPORTANT]
   > You will need to use gene models to perform splice-aware alignment, see PS8 from Bi621. You may need to convert the gff file into a gtf file for this to work successfully.
