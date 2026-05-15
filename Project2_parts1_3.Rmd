@@ -42,8 +42,8 @@ For steps 4-5 of project 2, people will have access to all of the counts files f
 
 Create a folder called Project2_Part1 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part1_answers.txt (located in Project2_Part1). Upload any plots created in this section to Project2_Part1 and give them detailed names.**
 
-1. Create a new environment with your package manager called `QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
-   - `fastqc --version` (should be X.XX.X)  
+1. Create a new environment with PIXI called `Project2_QAA` and install `FastQC`, `cutadapt`, and `Trimmomatic`. Google around if you need a refresher on how to create an environments. You should do this in an interactive session, not the login node! Record details of how you created this environment in your lab notebook! Make sure you check your installation with:
+   - `fastqc --version` (should be v0.12.1)  
 
 [Record details on how you made the environment to your lab notebook]
 
@@ -58,9 +58,9 @@ Create a folder called Project2_Part1 on your git repo. **Upload all of your ans
 
 Create a folder called Project2_Part2 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part2/Project2_Part2_answers.txt. Upload any R code to Project2_Part2/Project2_Part2_answers.R. Upload any plots created in this section to Project2_Part2 and give them detailed names.**
 
-5.  If you haven't already in your QAA environment, install `Cutadapt` and `Trimmomatic`. Check your installations with:
-    - `cutadapt --version` (should be X.X)
-    - `trimmomatic -version` (should be X.XX)
+5.  If you haven't already in your Project2_QAA environment, install `Cutadapt` and `Trimmomatic`. Check your installations with:
+    - `cutadapt --version` (should be 5.2)
+    - `trimmomatic -version` (should be 0.40)
 
 [Record details on install and/or version checking to your lab notebook]
 
@@ -92,7 +92,7 @@ Create a folder called Project2_Part2 on your git repo. **Upload all of your ans
 
 Create a folder called Project2_Part3 on your git repo. **Upload all of your answers and bash code from this section to Project2_Part3/Project2_Part3_answers.txt.**
 
-10. Install additional software for alignment and counting of RNA-seq reads. In your QAA environment, use conda to install:
+10. Install additional software for alignment and counting of RNA-seq reads. In your Project2_QAA environment, use conda to install:
     - Star
     - Samtools
     - NumPy
